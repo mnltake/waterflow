@@ -14,10 +14,10 @@ void pulse()   //measure the quantity of square wave
 }
 
 void setup() {
-  waterFlow =95;
+  waterFlow =45;
   totalwaterFlow =-5;
   EEPROM.begin(1);
-  // EEPROM.write(0,80); 
+  // EEPROM.write(0,50); 
   pomp_dsec =EEPROM.read(0);
   auto cfg = M5.config();
   M5.begin(cfg);   
@@ -40,7 +40,7 @@ void loop() {
   M5.Display.setTextColor(CYAN);
   M5.Display.setTextSize(3); 
   M5.Display.printf(" %4.1f L", totalwaterFlow);
-  if (waterFlow > 100){
+  if (waterFlow > 50){
     waterFlow =0;
     digitalWrite(relay_pin,HIGH);
     M5.Display.clear();
